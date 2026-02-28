@@ -3,10 +3,14 @@ const app = express()
 
 app.get('/', (req, res) => {
     console.log('User hit the home page')
-    res.send('Home page')
+    res
+    .status(200)
+    .send('Home page')
 })
 app.get('/about', (req, res) => {
-    res.send('About page')
+    res
+    .status(200)
+    .send('About page')
 })
 app.all('*', (req, res) => {
     res
