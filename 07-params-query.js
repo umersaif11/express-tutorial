@@ -12,14 +12,19 @@ app.get('/api/products', (req, res) => {
         const {id, name, image} = product
         return {id, name, image}
     })
-    res.send(newProducts)
+    res.json(newProducts)
 })
 app.get('/api/products/:productID', (req, res) => {
     const {productID} = req.params
     const singleproduct = products.find(product => (
         product.id === Number(productID)
     ))
-    res.send(singleproduct)
+    if(!singleproduct) {
+        return res
+        .status(404)
+        .send('Product does not exist')
+    }
+    res.json(singleproduct)
 })
 
 
