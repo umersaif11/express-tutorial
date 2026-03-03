@@ -26,6 +26,10 @@ app.get('/api/products/:productID', (req, res) => {
     }
     res.json(singleproduct)
 })
+app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
+    console.log(req.params)
+    res.send('Hello World')
+})
 
 
 app.listen(5000, () => {
