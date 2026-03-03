@@ -14,6 +14,13 @@ app.get('/api/products', (req, res) => {
     })
     res.send(newProducts)
 })
+app.get('/api/products/:productID', (req, res) => {
+    const {productID} = req.params
+    const singleproduct = products.find(product => (
+        product.id === Number(productID)
+    ))
+    res.send(singleproduct)
+})
 
 
 app.listen(5000, () => {
