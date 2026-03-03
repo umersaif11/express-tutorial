@@ -7,6 +7,13 @@ app.get('/', (req, res) => {
         '<h1>Home page</h1><a href="/api/products">products</a>'
     )
 })
+app.get('/api/products', (req, res) => {
+    const newProducts = products.map(product => {
+        const {id, name, image} = product
+        return {id, name, image}
+    })
+    res.send(newProducts)
+})
 
 
 app.listen(5000, () => {
