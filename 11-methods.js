@@ -6,10 +6,15 @@ let {people} = require('./data')
 app.use(express.static('./methods-public'))
 //parse form data
 app.use(express.urlencoded({extended: false}))
+//parse json
+app.use(express.json())
 
 app.get('/api/people', (req, res) => {
-    console.log(req.body)
     res.status(200).json({success: true, data: people})
+})
+app.post('/api/people', (req, res) => {
+    console.log(req.body)
+    res.status(201).send('Success')
 })
 app.post('/login', (req, res) => {
     const {name} = req.body
