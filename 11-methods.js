@@ -14,7 +14,7 @@ app.get('/api/people', (req, res) => {
 })
 app.post('/api/people', (req, res) => {
     console.log(req.body)
-    res.status(201).send('Success')
+    res.status(201).send(`Success ${req.body.name} added`)
 })
 app.post('/login', (req, res) => {
     const {name} = req.body
