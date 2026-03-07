@@ -30,7 +30,7 @@ app.post('/api/postman/people', (req, res) => {
         .status(400)
         .json({success: false, msg: 'Please provide name value'})
     }
-    res.status(201).json({success: true, person: name})
+    res.status(201).json({success: true, data:[...people, name]})
 })
 //index.html in ./methods-public
 app.post('/login', (req, res) => {
@@ -40,7 +40,13 @@ app.post('/login', (req, res) => {
     }
     res.status(401).send('Please provide credentials')
 })
-
+//put request
+app.put('/api/people/:id', (req, res) => {
+    const {id} = req.params
+    const {name} = req.body
+    console.log(id, name)
+    res.send('hello world')
+})
 app.listen(5000, () => {
     console.log('Server is listening on port 5000...')
 })
