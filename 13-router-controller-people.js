@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 
+//now we taking people from controllers folder
 const people = require('./controllers/controller-people')
 const authorize = require('./routes/auth')
 
